@@ -4,16 +4,37 @@ class Player{
 
         this.x = x
         this.y = y
-        this.width = 16
-        this.height = 16
+        this.width = 48
+        this.height = 48
         this.speed = 3
+        
+        this.direction = 0
+        this.frame = 0
+        this.frameTimer = 0
+
+        this.sprite = new Image()
+        this.sprite.src = "assets/char.png"
+
+        this.spriteSize = 48
 
     }
 
     draw(ctx){
 
-        ctx.fillStyle = "red"
-        ctx.fillRect(this.x,this.y,this.width,this.height)
+        const sx = this.frame * this.spriteSize
+        const sy = this.direction * this.spriteSize
+
+        ctx.drawImage(
+        this.sprite,
+        sx,
+        sy,
+        this.spriteSize,
+        this.spriteSize,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+        )
 
     }
 
@@ -21,11 +42,41 @@ class Player{
 
         let newX = this.x
         let newY = this.y
+        let moving = false
+        
 
-        if(keys["w"] || keys["ArrowUp"]) newY -= this.speed
-        if(keys["s"] || keys["ArrowDown"]) newY += this.speed
-        if(keys["a"] || keys["ArrowLeft"]) newX -= this.speed
-        if(keys["d"] || keys["ArrowRight"]) newX += this.speed
+        if(keys["s"] || keys["ArrowDown"]){
+
+            newY += this.speed
+            this.direction = 0
+            moving = true
+
+        }
+
+        if(keys["a"] || keys["ArrowLeft"]){
+
+            newX -= this.speed
+            this.direction = 1
+            moving = true
+
+        }
+
+        if(keys["d"] || keys["ArrowRight"]){
+
+            newX += this.speed
+            this.direction = 2
+            moving = true
+
+        }
+
+        if(keys["w"] || keys["ArrowUp"]){
+
+            newY -= this.speed
+            this.direction = 3
+            moving = true
+
+        }
+
 
         const future = {
             x:newX,
@@ -45,6 +96,26 @@ class Player{
         this.x = newX
         this.y = newY
 
-    }
 
-}
+        /* animation */
+
+        if(moving){
+
+            this.frameTimer++
+
+            if(this.frameTimer > 10){
+
+                this.frame = (this.frame + 1) % 4
+                this.frameTimer = 0
+
+            }
+        
+        }else{
+
+            this.frame = 1
+
+        }
+
+        }
+
+    }
