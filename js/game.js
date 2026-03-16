@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   const muteButton = document.getElementById('mute-button');
-  const bgMusic = document.getElementById('bg-music'); // Access the background music element
+  const bgMusic = document.getElementById('bg-music'); 
     bgMusic.volume = 0.2;
-  // Set up the event listener for the mute button
+
   muteButton.addEventListener('click', () => {
-    // Toggle the muted state of the background music
+   
     bgMusic.muted = !bgMusic.muted;
 
-    // Change the button text based on the mute state
+
     if (bgMusic.muted) {
-      muteButton.textContent = 'Unmute Music'; // Change to "Unmute Music" if muted
+      muteButton.textContent = 'Unmute Music'; 
     } else {
-      muteButton.textContent = 'Mute Music'; // Change to "Mute Music" if unmuted
+      muteButton.textContent = 'Mute Music';
     }
   });
 });
