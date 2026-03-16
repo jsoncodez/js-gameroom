@@ -4,14 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     bgMusic.volume = 0.2;
 
   muteButton.addEventListener('click', () => {
-   
+
     bgMusic.muted = !bgMusic.muted;
 
-
     if (bgMusic.muted) {
-      muteButton.textContent = 'Unmute Music'; 
+      muteButton.textContent = 'Unmute Music';
     } else {
-      muteButton.textContent = 'Mute Music';
+      muteButton.textContent = 'Mute Music'; 
     }
   });
 });
@@ -59,12 +58,12 @@ const collisions = [
 
 /* BED */
 
-{x:50,y:50,width:120,height:90},
+{x:50,y:50,width:120,height:60},
 
 
 /*CLOSET*/
 
-{x:360,y:40,width:75,height:80},
+{x:360,y:40,width:75,height:60},
 
 /* DESK + COMPUTER */
 
@@ -73,7 +72,7 @@ const collisions = [
 
 /* KITCHEN COUNTER */
 
-{x:600,y:35,width:200,height:80},
+{x:600,y:35,width:200,height:60},
 
 
 /* FRIDGE */
@@ -83,24 +82,24 @@ const collisions = [
 
 /* RIGHT COUCH */
 
-{x:350,y:430,width:50,height:100},
+{x:350,y:430,width:50,height:80},
 
 /* LEFT COUCH */
 
-{x:0,y:430,width:50,height:100},
+{x:0,y:430,width:50,height:160},
 
 /* SOUTH COUCH */
 
-{x:100,y:560,width:200,height:40},
+{x:100,y:560,width:200,height:20},
 
 /* COFFEE TABLE */
 
-{x:660,y:180,width:90,height:70},
+{x:660,y:180,width:90,height:50},
 
 
 /* TV STAND */
 
-{x:160,y:350,width:75,height:70},
+{x:160,y:350,width:75,height:50},
 
 /* PLANT AND BOOKCASE */
 
@@ -109,7 +108,7 @@ const collisions = [
 
 /* STAIRS & WALL ATTACHED*/
 
-{x:700,y:300,width:100,height:200},
+{x:700,y:300,width:100,height:170},
 {x:600,y:300,width:300,height:100}
 
 ]
@@ -155,6 +154,10 @@ showMessage("You watch TV for a bit.")
 
 ]
 
+
+
+/* MESSAGE SYSTEM */
+
 let message = ""
 let messageTimer = 0
 
@@ -166,6 +169,8 @@ messageTimer = 180
 }
 
 
+
+/* INTERACTION CHECK */
 
 function checkInteraction(){
 
@@ -180,10 +185,7 @@ function checkInteraction(){
 
 }
 
-
-
-/* OBJECT MESSAGE */
-
+// OBJECT INTERACTION MESSAGE //
 function drawMessage(){
 
     if(messageTimer > 0){
