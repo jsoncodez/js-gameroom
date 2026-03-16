@@ -1,6 +1,4 @@
 
-
-
 body{
     margin:0;
     background-color: #2E0854;
@@ -12,8 +10,8 @@ body{
 }
 
 .menu {
-  color: #05D9E8;
-  margin-top: 40px;
+    color: #05D9E8;
+    margin-top: 40px;
 }   
 
 .left-column {
@@ -52,14 +50,14 @@ canvas{
 }
 
 #character {
-  position: absolute;
-  width: 32px; 
-  height: 32px; 
-  background-image: url('assets/char.png');
-  background-size: 128px 128px; 
-  transition: left 0.1s, top 0.1s; 
-  image-rendering: pixelated; 
-    
-  left: 0px;  
-  top: 0px;  
+    position: absolute;
+    width: 32px; 
+    height: 32px; 
+    background-image: url('assets/char.png');
+    background-size: 128px 128px; 
+    transition: left 0.1s, top 0.1s; 
+    image-rendering: pixelated; 
+        
+    left: 0px;  
+    top: 0px;  
 }
